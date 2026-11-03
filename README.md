@@ -10,6 +10,7 @@ An IEEE 802.11a receiver on the ADALM-Pluto SDR, using GNU Radio. Project docume
 | --- | --- |
 | `Spectrum Analyzer.grc` | Spectrum analyzer flowgraph for the Pluto, built following the course tutorial |
 | `wifi_rx_pluto.grc` | Wi-Fi receiver for the Pluto, adapted from `examples/wifi_rx.grc` of `gr-ieee802-11` |
+| `captures/wifi-rx-pluto-2026-11-03.pcapng` | Frames we captured with the receiver through Wireshark; see the Wiki |
 | `deps/gr-ieee802-11` | Third-party 802.11 receiver blocks (submodule, not our work) |
 | `deps/gr-foo` | Third-party helper blocks, including the Wireshark connector (submodule, not our work) |
 
