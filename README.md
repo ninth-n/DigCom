@@ -1,3 +1,40 @@
 # DigCom
 
 Master's 1st year - Digital Communications
+
+An IEEE 802.11a receiver on the ADALM-Pluto SDR, using GNU Radio. Project documentation is in the [Wiki](https://github.com/ninth-n/DigCom/wiki).
+
+## Contents
+
+| Path | What it is |
+| --- | --- |
+| `Spectrum Analyzer.grc` | Spectrum analyzer flowgraph for the Pluto (our work) |
+| `wifi_rx_pluto.grc` | Wi-Fi receiver for the Pluto, adapted from `examples/wifi_rx.grc` of `gr-ieee802-11` |
+| `deps/gr-ieee802-11` | Third-party 802.11 receiver blocks (submodule, not our work) |
+| `deps/gr-foo` | Third-party helper blocks, including the Wireshark connector (submodule, not our work) |
+
+## Setup
+
+```bash
+git clone --recurse-submodules https://github.com/ninth-n/DigCom
+cd DigCom
+for m in deps/gr-foo deps/gr-ieee802-11; do
+  cmake -S $m -B $m/build -DCMAKE_BUILD_TYPE=Release \
+    && cmake --build $m/build -j"$(nproc)" \
+    && sudo cmake --install $m/build \
+    && sudo ldconfig \
+    || break
+done
+```
+
+Tested with GNU Radio 3.10.12 on Debian 13. Open `wifi_rx_pluto.grc` in GNU Radio Companion with the Pluto connected. Decoded frames are printed to the console and saved to `/tmp/wifi.pcap`, which can be opened in Wireshark.
+
+## Credits and licence
+
+The receiver is the work of Bastian Bloessl and contributors: [gr-ieee802-11](https://github.com/bastibl/gr-ieee802-11) and [gr-foo](https://github.com/bastibl/gr-foo), described in:
+
+> B. Bloessl, M. Segata, C. Sommer and F. Dressler, "An IEEE 802.11a/g/p OFDM Receiver for GNU Radio", SRIF '13. https://doi.org/10.1145/2491246.2491248
+
+Both are licensed under the GNU GPL v3 and are included here unmodified, as submodules with their own licence files. `wifi_rx_pluto.grc` is derived from `wifi_rx.grc` and is also licensed under the GPL v3 (`LICENSES/GPL-3.0.txt`). Changes made on 2026-11-03: replaced the USRP source with a PlutoSDR source, removed `lo_offset`, changed the sample rate, frequency and gain defaults, and enabled the Wireshark output.
+
+`wifi_rx_pluto.grc` was generated with AI assistance (Claude Code). See the Wiki for our AI usage declaration.

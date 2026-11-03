@@ -1,0 +1,8 @@
+[submodule "deps/gr-foo"]
+	path = deps/gr-foo
+	url = https://github.com/bastibl/gr-foo
+	branch = maint-3.10
+[submodule "deps/gr-ieee802-11"]
+	path = deps/gr-ieee802-11
+	url = https://github.com/bastibl/gr-ieee802-11
+	branch = maint-3.10
