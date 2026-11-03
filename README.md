@@ -4,15 +4,17 @@ Master's 1st year - Digital Communications
 
 An IEEE 802.11a receiver on the ADALM-Pluto SDR, using GNU Radio. Project documentation is in the [Wiki](https://github.com/ninth-n/DigCom/wiki).
 
+**Status: the receiver here is an interim choice, not a final decision.** We use `gr-ieee802-11` temporarily while we confirm with the lecturers whether a receiver will be provided or which one we should use. We will later decide whether to keep it permanently or replace it. Everything in this repository related to it may change or be removed.
+
 ## Contents
 
 | Path | What it is |
 | --- | --- |
 | `Spectrum Analyzer.grc` | Spectrum analyzer flowgraph for the Pluto, built following the course tutorial |
-| `wifi_rx_pluto.grc` | Wi-Fi receiver for the Pluto, adapted from `examples/wifi_rx.grc` of `gr-ieee802-11` |
-| `captures/wifi-rx-pluto-2026-11-03.pcapng` | Frames we captured with the receiver through Wireshark; see the Wiki |
-| `deps/gr-ieee802-11` | Third-party 802.11 receiver blocks (submodule, not our work) |
-| `deps/gr-foo` | Third-party helper blocks, including the Wireshark connector (submodule, not our work) |
+| `wifi_rx_pluto.grc` | Interim Wi-Fi receiver for the Pluto, adapted from `examples/wifi_rx.grc` of `gr-ieee802-11` |
+| `captures/wifi-rx-pluto-2026-11-03.pcapng` | Frames we captured with the interim receiver through Wireshark; see the Wiki |
+| `deps/gr-ieee802-11` | Third-party 802.11 receiver blocks used by the interim receiver (submodule, not our work) |
+| `deps/gr-foo` | Third-party helper blocks for the interim receiver, including the Wireshark connector (submodule, not our work) |
 
 ## Setup
 
@@ -51,7 +53,7 @@ The Pluto sustains about 6.5 Msps over USB, less than the 20 Msps Wi-Fi needs, s
 
 ## Credits and licence
 
-The receiver is the work of Bastian Bloessl and contributors: [gr-ieee802-11](https://github.com/bastibl/gr-ieee802-11) and [gr-foo](https://github.com/bastibl/gr-foo), described in:
+The interim receiver is the work of Bastian Bloessl and contributors: [gr-ieee802-11](https://github.com/bastibl/gr-ieee802-11) and [gr-foo](https://github.com/bastibl/gr-foo), described in:
 
 > B. Bloessl, M. Segata, C. Sommer and F. Dressler, "An IEEE 802.11a/g/p OFDM Receiver for GNU Radio", SRIF '13. https://doi.org/10.1145/2491246.2491248
 
