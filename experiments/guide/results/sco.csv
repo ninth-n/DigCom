@@ -1,0 +1,11 @@
+recording,added_khz,frames_normal,frames_no_clock_correction,long_frames_normal,long_frames_no_clock_correction
+ch100,-500,344,412,0,0
+ch100,-300,405,412,0,0
+ch100,0,411,412,0,0
+ch100,300,344,412,0,0
+ch100,500,267,412,0,0
+ch6,-500,142,173,0,3
+ch6,-300,153,174,0,3
+ch6,0,172,174,2,3
+ch6,300,145,174,0,3
+ch6,500,138,175,0,3

@@ -1,0 +1,7 @@
+recording  frames  energy later than 0.8us: median   90th pct   RMS delay spread (median)
+ch36          648                            1.91%      2.98%      246 ns
+ch6           172                            3.22%      6.02%      310 ns
+ch100         411                            2.84%      3.43%      298 ns
+baseline: flat channel (ideal)               late  1.54%   RMS  217 ns
+baseline: 2 paths, 2nd 0.5 us later, -6 dB   late  2.71%   RMS  328 ns
+baseline: 2 paths, 2nd 1.0 us later, -6 dB   late 20.87%   RMS  452 ns

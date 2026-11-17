@@ -13,6 +13,9 @@ An IEEE 802.11a receiver on the ADALM-Pluto SDR, using GNU Radio. Project docume
 | `Spectrum Analyzer.grc` | Spectrum analyzer flowgraph for the Pluto, built following the course tutorial |
 | `wifi_rx_pluto.grc` | Wi-Fi receiver for the Pluto, adapted from `examples/wifi_rx.grc` of `gr-ieee802-11` |
 | `captures/wifi-rx-pluto-2026-11-03-masked.pcapng` | Frames we captured with the receiver through Wireshark, masked for publication. Wireshark flags 198 of them as malformed because of the masking; see the Wiki |
+| `blocks/` | Our Frame Analyser block (`frame_analyser.py`) and its GNU Radio Companion definition: per-frame SNR, frequency offset and channel response, statistics per encoding, CSV log. Never reads addresses or payloads |
+| `experiments/frame_analyser/` | Scripts that run the receiver with the Frame Analyser on the course recordings or the Pluto, plot the results and compute impulse responses; results and plots |
+| `experiments/guide/` | Experiments for the course guide (window size, frames close together, frequency offset, Sync Long length and delay, narrowband tone, matched filter); results and plots |
 | `deps/gr-ieee802-11` | Third-party 802.11 receiver blocks used by the receiver (submodule, not our work) |
 | `deps/gr-foo` | Third-party helper blocks for the receiver, including the Wireshark connector (submodule, not our work) |
 
@@ -50,6 +53,25 @@ wireshark -k -i /tmp/wifi.pcap
 ```
 
 The Pluto sustains about 6.5 Msps over USB, less than the 20 Msps Wi-Fi needs, so the console shows overflows (`O`) and some frames are lost.
+
+## Frame Analyser block
+
+GNU Radio Companion finds the block if started with the `blocks/` folder on both paths:
+
+```bash
+GRC_BLOCKS_PATH=$PWD/blocks PYTHONPATH=$PWD/blocks gnuradio-companion
+```
+
+Add **Frame Analyser** (category CDIG) and connect WiFi Decode MAC's `out` port to its `frames` input.
+
+## Experiments on the course recordings
+
+The course recordings are too big for the repository. Put them in `recordings/` (ignored by Git), or set `CDIG_RECORDINGS` to their folder, then for example:
+
+```bash
+cd experiments/guide && python3 rx_chain.py ch100            # frames decoded: 411
+python3 sweeps.py cfo                                         # writes results/cfo.csv
+```
 
 ## Credits and licence
 

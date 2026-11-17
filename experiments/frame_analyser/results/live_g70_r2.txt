@@ -1,0 +1,8 @@
+device_source_impl::set_params :warning: set_params: Unable to write attribute in_voltage0_hardwaregain: -22 70.000000
+OOOOOOOOOOOFrame Analyser: 727 frames in 15 s
+  BPSK 1/2     448 frames  SNR median   9.3 dB  (10%   5.7, 90%  12.6)
+  BPSK 3/4       1 frames  SNR median   8.5 dB  (10%   8.5, 90%   8.5)
+  QPSK 1/2     203 frames  SNR median   9.8 dB  (10%   7.1, 90%  14.4)
+  QPSK 3/4      19 frames  SNR median  11.9 dB  (10%   9.5, 90%  15.3)
+  16-QAM 1/2    56 frames  SNR median  13.5 dB  (10%  11.1, 90%  15.5)
+O

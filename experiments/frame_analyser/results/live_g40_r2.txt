@@ -1,0 +1,7 @@
+OOOOOOOOOOFrame Analyser: 921 frames in 15 s
+  BPSK 1/2     600 frames  SNR median   9.8 dB  (10%   5.3, 90%  13.0)
+  BPSK 3/4       6 frames  SNR median  14.0 dB  (10%   4.9, 90%  24.1)
+  QPSK 1/2     125 frames  SNR median   9.0 dB  (10%   6.6, 90%  12.6)
+  QPSK 3/4      36 frames  SNR median  13.2 dB  (10%  10.7, 90%  15.3)
+  16-QAM 1/2   154 frames  SNR median  14.8 dB  (10%  12.6, 90%  27.3)
+O

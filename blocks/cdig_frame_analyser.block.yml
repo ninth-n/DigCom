@@ -1,0 +1,34 @@
+id: cdig_frame_analyser
+label: Frame Analyser
+category: '[CDIG]'
+
+parameters:
+-   id: log_path
+    label: CSV log file (empty = no log)
+    dtype: string
+    default: ''
+-   id: report_every
+    label: Print summary every N frames (0 = only at the end)
+    dtype: int
+    default: '100'
+
+inputs:
+-   domain: message
+    id: frames
+
+outputs:
+-   domain: message
+    id: channel
+    optional: true
+
+templates:
+    imports: from frame_analyser import frame_analyser
+    make: frame_analyser(${log_path}, ${report_every})
+
+documentation: |-
+    Per-frame statistics for the gr-ieee802-11 receiver. Connect Decode MAC "out" to "frames".
+    Prints SNR statistics per encoding and can log encoding, length, SNR, frequency offset and the
+    channel response on 52 subcarriers to a CSV file. "channel" outputs the channel magnitude in dB
+    for live plotting. Never reads addresses or payloads.
+
+file_format: 1
