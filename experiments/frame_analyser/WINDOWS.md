@@ -3,6 +3,17 @@
 Open `wifi_rx_recording.grc` using `open_recording_receiver.ps1` from a
 PowerShell session with Radioconda installed at `C:/Radioconda`.
 The launcher sets the block, Python and library paths for that process.
+By default, put the course files in the repository's ignored `recordings/`
+folder. The CSV defaults to the ignored `frame-analyser.csv` at the root.
+To use another location, pass local paths when launching:
+
+```powershell
+./open_recording_receiver.ps1 -RecordingsDir 'D:/CDIG/recordings' -CsvPath 'D:/CDIG/ch36.csv'
+```
+
+Use `-RadiocondaRoot` if Radioconda is installed elsewhere. The recording
+and CSV settings reach the flowgraph through `CDIG_RECORDINGS` and
+`CDIG_CSV`, so each user can choose paths without editing the GRC.
 
 The recording flowgraph uses the receiver's digital chain at 20 MS/s,
 threshold 0.56, correlation window 48, Sync Long length 320 and LS
@@ -17,7 +28,8 @@ Before running, set the three Parameter blocks at the top of the graph.
 `csv_path` must name a file in an existing directory. Each run overwrites
 that file, so use a different name for each recording.
 `recording` selects 0 for channel 36, 1 for channel 6 or 2 for channel 100.
-The defaults point to the local CDIG folder on the development PC.
+When launching GRC separately, set `CDIG_RECORDINGS` and `CDIG_CSV` first,
+or edit these Parameter blocks locally.
 
 Generate with F5 and execute with F6. The file plays once at processing
 speed. The constellation and channel response update during playback.

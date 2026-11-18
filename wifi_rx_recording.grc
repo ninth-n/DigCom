@@ -628,7 +628,7 @@ blocks:
 - name: recordings_dir
   id: parameter
   parameters:
-    value: '''C:/Users/Réplica/Desktop/MEEC/CDIG/Wifi_Project_Baseband_recordings'''
+    value: __import__('os').environ.get('CDIG_RECORDINGS', 'recordings')
     type: str
     short_id: d
     label: Recordings folder
@@ -642,7 +642,7 @@ blocks:
 - name: csv_path
   id: parameter
   parameters:
-    value: '''C:/Users/Réplica/Desktop/MEEC/CDIG/threshold-results/frame-analyser.csv'''
+    value: __import__('os').environ.get('CDIG_CSV', 'frame-analyser.csv')
     type: str
     short_id: o
     label: CSV output

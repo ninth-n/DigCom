@@ -8,6 +8,7 @@
 wifi_rx_pluto.py
 wifi_rx_recording.py
 __pycache__/
+frame-analyser.csv
 
 # Course baseband recordings (hundreds of MB each)
 recordings/
