@@ -1,0 +1,17 @@
+id: cdig_channel_display
+label: Channel Display Source
+category: '[CDIG]'
+inputs:
+- domain: message
+  id: channel
+outputs:
+- domain: stream
+  dtype: float
+  vlen: 52
+templates:
+  imports: from channel_display import channel_display
+  make: channel_display()
+documentation: |-
+  Repeats the latest 52-value channel PDU. Connect through a Throttle
+  configured for float vectors of length 52 to a QT GUI Vector Sink.
+file_format: 1
