@@ -1,0 +1,51 @@
+options:
+  copyright: Derived from examples/wifi_rx.grc of gr-ieee802-11 (GPLv3). Modified
+    2026-11-03 for the ADALM-Pluto.
+  id: wifi_rx_pluto
+  title: WiFi RX (ADALM-Pluto)
+parameters:
+  freq:
+    value: 5500e6
+  gain:
+    step: '1'
+    stop: '73'
+    value: '50'
+  samp_rate:
+    value: 20e6
+  blocks_file_sink_0:
+    append: 'False'
+  foo_wireshark_connector_0: {}
+source:
+  name: iio_pluto_source_0
+  id: iio_pluto_source
+  parameters:
+    affinity: ''
+    alias: ''
+    bandwidth: int(samp_rate)
+    bbdc: 'True'
+    buffer_size: '524288'
+    comment: ''
+    filter: ''
+    filter_source: '''Auto'''
+    fpass: '0'
+    frequency: int(freq)
+    fstop: '0'
+    gain1: '''manual'''
+    len_tag_key: packet_len
+    manual_gain1: gain
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    quadrature: 'True'
+    rfdc: 'True'
+    samplerate: int(samp_rate)
+    type: fc32
+    uri: ip:pluto.local
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 32
+    - 216
+    rotation: 0
+    state: enabled
