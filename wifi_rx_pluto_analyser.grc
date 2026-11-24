@@ -810,7 +810,7 @@ blocks:
     rfdc: 'True'
     samplerate: int(samp_rate)
     type: fc32
-    uri: ip:pluto.local
+    uri: pluto_uri
   states:
     bus_sink: false
     bus_source: false
@@ -824,8 +824,8 @@ blocks:
   id: parameter
   parameters:
     value: __import__('os').path.join(__import__('os').environ['CDIG_LIVE_RUN'], 'frames.csv')
-    type: str
-    short_id: o
+    type: ''
+    short_id: ''
     label: CSV output
     hide: none
   states:
@@ -838,14 +838,26 @@ blocks:
   id: parameter
   parameters:
     value: __import__('os').path.join(__import__('os').environ['CDIG_LIVE_RUN'], 'frames.pcap')
-    type: str
-    short_id: o
+    type: ''
+    short_id: ''
     label: Packet capture
     hide: none
   states:
     coordinate:
     - 432
     - 1100
+    rotation: 0
+    state: enabled
+- name: pluto_uri
+  id: parameter
+  parameters:
+    value: ip:pluto.local
+    type: str
+    short_id: ''
+    label: Pluto IIO URI
+    hide: none
+  states:
+    coordinate: [625, 1100]
     rotation: 0
     state: enabled
 - name: frame_analyser_0
