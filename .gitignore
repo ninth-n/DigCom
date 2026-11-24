@@ -13,3 +13,6 @@ frame-analyser.csv
 # Course baseband recordings (hundreds of MB each)
 recordings/
 *.bin
+
+wifi_rx_pluto_analyser.py
+live-runs/
